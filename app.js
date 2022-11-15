@@ -22,3 +22,22 @@ navItems.forEach((item) => {
     navLineReturn();
   };
 });
+
+//UI Menu Header
+const headerMenu = $(".header-menu");
+const moreMenu = $(".more-menu");
+const overlay = $(".overlay");
+const moreClose = $(".more-close svg");
+
+headerMenu.onclick = function () {
+  overlay.classList.add("active");
+  moreMenu.style.right = "0px";
+};
+
+const closeMoreMenu = () => {
+  overlay.classList.remove("active");
+  moreMenu.style.right = "-100%";
+};
+
+moreClose.onclick = closeMoreMenu;
+overlay.onclick = closeMoreMenu;

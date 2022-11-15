@@ -31,6 +31,7 @@ body {
   font-size: 2rem;
   line-height: 1.5;
   background-color: var(--body-bgc);
+  position: relative;
 }
 
 img {
@@ -439,6 +440,10 @@ ul {
   text-align: right;
 }
 
+.more-menu {
+  display: none;
+}
+
 @media screen and (max-width: 1024px) {
   .intro-right {
     display: none;
@@ -464,6 +469,63 @@ ul {
   .header-menu {
     cursor: pointer;
     display: block;
+  }
+  .header-menu svg {
+    width: 32px;
+    aspect-ratio: 1/1;
+  }
+  .more-menu {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 40%;
+    height: 100vh;
+    background-color: var(--body-bgc);
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    z-index: 100;
+    transition: all 0.5s ease-in-out;
+  }
+  .more-menu .more-close {
+    margin-bottom: 32px;
+  }
+  .more-menu .more-close svg {
+    cursor: pointer;
+    float: right;
+    color: var(--text-gray);
+    width: 32px;
+  }
+  .more-menu .navbar {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .more-menu .authent {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    border-top: 1px solid var(--text-gray);
+    padding-top: 32px;
+    margin-top: 32px;
+  }
+  .more-menu .authent a {
+    color: var(--text-gray);
+  }
+  .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.21);
+    z-index: 99;
+    display: none;
+  }
+  .overlay.active {
+    display: block;
+    -webkit-animation: fadeIn 0.5s ease-in-out;
+            animation: fadeIn 0.5s ease-in-out;
   }
   .nft-list {
     justify-content: space-around;
@@ -493,5 +555,21 @@ ul {
   .footer-navigate {
     width: 100%;
     justify-content: space-between;
+  }
+}
+@-webkit-keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 0.21;
+  }
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 0.21;
   }
 }
