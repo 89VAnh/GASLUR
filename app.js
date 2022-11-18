@@ -2,9 +2,10 @@ const $ = document.querySelector.bind(document);
 const $$ = document.querySelectorAll.bind(document);
 
 // Line UI Navbar
-const navItems = $$(".nav-items:not(.active)");
+const navItems = $$(".nav-items");
 const navLine = $(".nav-line");
 const navActive = $(".nav-items.active");
+const navbar = $(".navbar");
 
 const navLineReturn = () => {
   navLine.style.left = navActive.offsetLeft + "px";
@@ -18,10 +19,10 @@ navItems.forEach((item) => {
     navLine.style.left = this.offsetLeft + "px";
     navLine.style.width = this.offsetWidth + "px";
   };
-  item.onmouseleave = function () {
-    navLineReturn();
-  };
 });
+navbar.onmouseleave = function () {
+  navLineReturn();
+};
 
 //UI Menu Header
 const headerMenu = $(".header-menu");
